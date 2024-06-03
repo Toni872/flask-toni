@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Cocktails</h1>
+
+    <!-- Aquí puedes mostrar los datos de los cócteles -->
+    {% for dato in datos %}
+        <h2>{{ dato.nombre }}</h2>
+        <p>Ingredientes: {{ dato.ingredientes }}</p>
+    {% endfor %}
+
+    <!-- Aquí puedes incluir cualquier otro contenido que quieras -->
+{% endblock %}

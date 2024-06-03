@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Incluye Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- Incluye tu CSS personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <!-- Incluye el favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BARKEEPER</title>
+</head>
+<body>
+    <header class="mb-4">
+        <h1>BARKEEPER</h1>
+        <!-- Incluye la imagen de cabecera -->
+        <img src="{{ url_for('static', filename='images/fondo.jpg') }}" alt="Imagen de cabecera">
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">Inicio</a>
+                    </li>
+                    <!-- Agrega más elementos de lista para más enlaces -->
+                </ul>
+            </div>
+            <!-- Aquí es donde agregamos el mensaje de error -->
+            {% if error_message %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error_message }}
+                </div>
+            {% endif %}
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <!-- Aquí es donde iría el pie de página -->
+    </footer>
+</body>
+</html>
